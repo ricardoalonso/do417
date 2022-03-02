@@ -1,0 +1,23 @@
+- hosts: all
+  name: my demo play
+  tasks:
+    - debug:
+        msg: hello 
+      name: output the hello message
+    - win_shell: date
+      name: verify the current date
+    - win_copy:
+        content: hello world
+        dest: c:\\temp\\notfound\\file.txt
+      name: copy the file to temp folder
+    - win_shell: notfound
+      name: execute the notfound command
+- name: second play
+  hosts: win1.example.com
+  tasks:
+  - name: get current user info
+    win_whoami:
+    register: whoami
+  - name: show current user
+    debug:
+      var: whoami

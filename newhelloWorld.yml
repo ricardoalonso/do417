@@ -1,0 +1,20 @@
+---
+- name: Hello World Play
+  hosts: win*
+  tasks:
+    - win_copy:
+        content: "Hello from Ricardo!!!"
+        dest: "{{ ansible_facts['user_dir'] }}\\Desktop\\hello.txt"
+      name: Copy the hello world message to the file
+
+
+
+  - win_ping:
+    name: ping to the server
+
+
+
+    - win_service:
+          name: spooler
+          state: running
+      name: verify if spooler service is running

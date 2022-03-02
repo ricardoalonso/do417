@@ -1,0 +1,7 @@
+- hosts: win1.example.com
+  gather_facts: false
+  tasks:
+  - win_product_facts:
+  - debug:
+      var: hostvars
+  

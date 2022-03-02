@@ -1,0 +1,18 @@
+- name: second play
+  hosts: win1.example.com
+  become_method: runas
+  become_user: System
+  tasks:
+  - name: get current user info
+    win_whoami:
+    register: whoami
+  - name: show current user
+    debug:
+      msg: "{{ whoami }}"
+  - name: get current user info with become
+    win_whoami:
+    become: true
+    register: whoami
+  - name: show current user with become
+    debug:
+      var: whoami
