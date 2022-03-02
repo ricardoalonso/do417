@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+  - stat:
+      path: /etc/hosts
+    register: out
+  - debug:
+      msg: El fichero no existe.
+    when: not out.stat.exists
+    name: el fichero exist?

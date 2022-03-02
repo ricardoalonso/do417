@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars:
+    numeros:
+    - 1
+    - 2
+    - 3
+    - 4
+  tasks:
+  - name: pares
+    debug:
+      var: item
+    loop: "{{ numeros }}"
+    when: item % 2 == 0

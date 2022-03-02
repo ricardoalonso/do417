@@ -1,0 +1,12 @@
+- hosts: localhost
+  vars:
+    periodo: manana
+  tasks:
+  - debug:
+      msg: buenos dias
+    when: periodo == 'manana'
+    name: diga buenos dias
+  - debug:
+      msg: buenas tardes
+    name: diga buenas tardes
+    when: periodo == 'tarde'

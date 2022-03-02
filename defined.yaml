@@ -1,0 +1,6 @@
+- hosts: localhost
+  vars:
+  tasks:
+  - debug:
+      msg: "class is defined (value = {{ class }}"
+    when: class is defined

@@ -1,0 +1,20 @@
+- hosts: localhost
+  tasks:
+  - name: Install JRE 8
+    win_chocolatey:
+      name: jre8
+      state: present
+    notify: reboot windows
+  - name: Install Java Runtime
+    win_chocolatey:
+      name: javaruntime-preventasktoolbar
+      state: present
+    notify: reboot windows
+  - name: Install Dropbox
+    win_chocolatey:
+      name: dropbox
+      state: present
+    notify: reboot windows
+  handlers:
+  - name: reboot windows
+    win_reboot: 

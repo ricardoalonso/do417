@@ -1,0 +1,8 @@
+- hosts: localhost
+  roles:
+    - role: rhel-system-roles.timesync
+      timesync_ntp_servers:
+      - hostname: uk.pool.ntp.org
+        iburst: true
+        maxpool: 6
+

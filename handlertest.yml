@@ -1,0 +1,32 @@
+- hosts: localhost
+  force_handlers: true
+  
+  pre_tasks:
+  - debug:
+      msg: pre task section
+    changed_when: true
+    notify: say something
+  - set_fact:
+      msg: hello from pre task
+  roles:
+#  - role1
+  tasks:
+  - debug:
+      msg: hello world
+    notify: say something
+    changed_when: true
+  - set_fact:
+      msg: good morning
+  - debug:
+      msg: enjoy your day
+  post_tasks:
+  - debug:
+      msg: post tasks section
+    changed_when: true
+    notify: say something
+  - set_fact:
+      msg: goodbye
+  handlers:
+  - name: say something
+    debug:
+      msg: "{{ msg }}"
