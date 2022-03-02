@@ -1,0 +1,16 @@
+- hosts: localhost
+  tasks:
+  - name: the copy must not happen
+    copy:
+      content: this is a test file
+      dest: /tmp/do/no/exist
+    register: copy
+    failed_when: not copy.failed
+    ignore_errors: true
+  - debug:
+      var: copy
+  - stat:
+      path: /tmp/do/no/exist
+    register: file
+  - debug:
+      var: file

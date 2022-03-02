@@ -1,0 +1,17 @@
+- hosts: localhost
+  tasks:
+  - block:
+    - debug:
+        msg: task before the one that can fail
+    - fail:
+      when: play_fail is undefined
+    - debug:
+        msg: normal task that should run if there's no errors
+    rescue:
+    - debug:
+        msg: an error happened and I'm recovering
+    always:
+    - debug:
+        msg: this will always execute not matter the result
+  - debug:
+      msg: after the block I can continue
