@@ -1,0 +1,8 @@
+- hosts: localhost
+  tasks:
+  - win_copy:
+      content: "{{ ansible_facts | to_nice_yaml }}"
+      dest: facts.txt
+  - win_template:
+      src: report.txt.j2
+      dest: report.txt
