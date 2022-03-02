@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+  - win_copy:
+      content: "Hello from Ricardo!!!"
+      dest: "{{ ansible_facts['user_dir'] }}\\Desktop\\hello.txt"
