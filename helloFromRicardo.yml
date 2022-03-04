@@ -1,5 +1,7 @@
 - hosts: all
+  vars:
+    hello_msg: Hello from Ricardo!!!
   tasks:
   - win_copy:
-      content: "Hello from Ricardo!!!"
+      content: "{{ hello_msg }}"
       dest: "{{ ansible_facts['user_dir'] }}\\Desktop\\hello.txt"
