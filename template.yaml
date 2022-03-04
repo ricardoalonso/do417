@@ -1,8 +1,8 @@
-- hosts: localhost
+- hosts: Workstations
   tasks:
   - win_copy:
       content: "{{ ansible_facts | to_nice_yaml }}"
-      dest: facts.txt
+      dest: "{{ ansible_facts['user_dir'] }}\\Desktop\\facts.txt"
   - win_template:
       src: report.txt.j2
-      dest: report.txt
+      dest: "{{ ansible_facts['user_dir'] }}\\Desktop\\report.txt"
