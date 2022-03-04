@@ -5,3 +5,4 @@
   - win_copy:
       content: "{{ hello_msg }}"
       dest: "{{ ansible_facts['user_dir'] }}\\Desktop\\hello.txt"
+  - fail: "Sorry, I found a problem and can't continue."
