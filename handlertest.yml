@@ -9,8 +9,13 @@
   - set_fact:
       msg: hello from pre task
   roles:
-#  - role1
+  - role: myrole
+    user_msg: message from the role call
   tasks:
+  - include_role: 
+      name: myrole
+    vars:
+      user_msg: the role was imported
   - debug:
       msg: hello world
     notify: say something

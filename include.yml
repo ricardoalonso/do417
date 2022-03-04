@@ -1,0 +1,23 @@
+- hosts: localhost
+  name: import tasks
+  vars:
+      file: debug_task
+  tasks:
+  - debug:
+      msg: before import
+  - import_tasks: "{{ file }}.yaml"
+  - debug:
+      msg: after import
+
+- hosts: localhost
+  name: include tasks
+  tasks:
+  - set_fact:
+      file: debug_task
+  - debug:
+      msg: before include
+  - include_tasks: "{{ file }}.yaml"
+    vars:
+      profesor: Ricardo Alonso
+  - debug:
+      msg: after include

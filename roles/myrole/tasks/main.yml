@@ -1,0 +1,15 @@
+---
+# tasks file for myrole
+- debug:
+    msg: hello from a role task
+  name: first task
+- name: view interfaces data
+  shell: ip a
+  register: out
+  notify: say hello
+- debug:
+    var: out
+  name: display ip data
+- debug:
+    var: user_msg
+  name: display user message

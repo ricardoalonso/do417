@@ -1,0 +1,5 @@
+---
+# handlers file for myrole
+- name: say hello
+  debug:
+    msg: hola a todos

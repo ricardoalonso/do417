@@ -1,0 +1,4 @@
+- debug:
+    msg: this is an included task
+- debug:
+    var: profesor
